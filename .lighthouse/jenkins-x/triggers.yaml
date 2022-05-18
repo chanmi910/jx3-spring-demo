@@ -14,3 +14,10 @@ spec:
     branches:
     - ^main$
     - ^master$
+  - name: deploy
+    context: "deploy"
+    always_run: true
+    optional: false
+    trigger: '/jx deploy'
+    rerun_command: '/jx deploy'
+    source: "https://github.com/chanmi910/jx3-spring-demo/blob/master/.lighthouse/jenkins-x/deploy.yaml"      
