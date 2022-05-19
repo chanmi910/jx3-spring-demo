@@ -2,18 +2,41 @@ apiVersion: config.lighthouse.jenkins-x.io/v1alpha1
 kind: TriggerConfig
 spec:
   presubmits:
-  - name: pr
-    context: "pr"
+  - name: verify
+    context: "verify"
     always_run: true
     optional: false
     source: "pullrequest.yaml"
-  - name: deploy
-    context: "deploy"
-    always_run: true
-    optional: false
-    trigger: '/jx deploy'
-    rerun_command: '/jx deploy'
-    source: "https://github.com/chanmi910/jx3-spring-demo/blob/master/.lighthouse/jenkins-x/deploy.yaml"       
+    queries:
+    - excludedBranches: {}
+      included_branches: {}
+      labels:
+        entries:
+        - approved
+      milestone: ""
+      missingLabels:
+        entries:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/work-in-progress
+        - needs-ok-to-test
+        - needs-rebase
+      review_approved_required: false
+    - excludedBranches: {}
+      included_branches: {}
+      labels:
+        entries:
+        - env/staging
+        - updatebot
+      milestone: ""
+      missingLabels:
+        entries:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/work-in-progress
+        - needs-ok-to-test
+        - needs-rebase
+      review_approved_required: false
   postsubmits:
   - name: release
     context: "release"
@@ -21,10 +44,3 @@ spec:
     branches:
     - ^main$
     - ^master$
-  - name: deploy
-    context: "deploy"
-    always_run: true
-    optional: false
-    trigger: '/jx deploy'
-    rerun_command: '/jx deploy'
-    source: "https://github.com/chanmi910/jx3-spring-demo/blob/master/.lighthouse/jenkins-x/deploy.yaml"      
