@@ -36,6 +36,6 @@ spec:
         - name: promote-jx-preview
           resources: {}
   podTemplate: {}
-  serviceAccountName: tekton-bot
+  serviceAccountName: tekton-sa
   timeout: 12h0m0s
 status: {}
