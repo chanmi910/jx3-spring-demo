@@ -33,6 +33,7 @@ spec:
           resources: {}
         - name: build-container-build
           resources: {}
+          tag: "0.1"
         - name: promote-jx-preview
           resources: {}
   podTemplate: {}
