@@ -33,9 +33,9 @@ spec:
           resources: {}
         - name: build-container-build
           resources: {}
-          params: 
-            - name: version
-              value: "0.1"
+#          params: 
+#            - name: version
+#              value: "0.1"
         - name: promote-jx-preview
           resources: {}
   podTemplate: {}
