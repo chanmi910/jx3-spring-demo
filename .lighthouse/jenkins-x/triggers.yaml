@@ -14,33 +14,5 @@ spec:
     branches:
     - ^main$
     - ^master$    
-    queries:
-    - excludedBranches: {}
-      included_branches: {}
-      labels:
-        entries:
-        - deploy
-      milestone: ""
-      missingLabels:
-        entries:
-        - do-not-merge
-        - do-not-merge/hold
-        - do-not-merge/work-in-progress
-        - needs-ok-to-test
-        - needs-rebase
-      review_approved_required: false
-    - excludedBranches: {}
-      included_branches: {}
-      labels:
-        entries:
-        - env/staging
-        - updatebot
-      milestone: ""
-      missingLabels:
-        entries:
-        - do-not-merge
-        - do-not-merge/hold
-        - do-not-merge/work-in-progress
-        - needs-ok-to-test
-        - needs-rebase
-      review_approved_required: false
+    labels:
+    - deploy
